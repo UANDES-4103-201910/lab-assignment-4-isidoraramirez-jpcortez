@@ -1,17 +1,29 @@
 class Event < ApplicationRecord
   belongs_to :event_venue
   has_many :ticket_types
-  
-
   validates :start_date, :presence => true
-  validate :end_date
+  validate :later_date
+  #validates  :presence => true
+  validate :host_date_venue
 
-  def end_date
-    end_date = Date.today.to_s
-    if end_date > self.start_date.to_s
-      errors.add(:end_date, "must be after the start date")
+  def later_date
+    today = Date.today.to_s
+    if today > self.start_date.to_s
+      errors.add(:later_date, "must be after today :(")
     end
   end
+
+  def host_date_venue
+    date = self.start_date
+    myvenue_id = self.event_venue_id
+    all_events = Event.all
+    all_events.each do |evento|
+	if evento.start_date == date && evento.event_venue_id == myvenue_id
+		errors.add(:host_date_venue, "the venue is already used that day")
+	end
+    end
+  end 
+	
 
   def self.most_tickets_sold
     # The easiest and most efficient in this case is to simply issue a single SQL query
