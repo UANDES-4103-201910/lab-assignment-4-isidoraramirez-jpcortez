@@ -5,21 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = [User.new(name:'Claudio', lastname:'Alvarez', \
-              password:'123456', email:'calvarez1@miuandes.cl', \
+users = [User.new(name:'Claudio', lastname:'Alvarez', phone_number: 123456780, \
+              password:'123456678', email:'calvarez1@miuandes.cl', \
               address:'San Carlos de Apoquindo'), 
-         User.new(name:'Juan', lastname:'Rataplan', \
-              password:'123456', email:'jrataplan@miuandes.cl', \
+         User.new(name:'Juan', lastname:'Rataplan', phone_number: 123456740, \
+              password:'1234563423', email:'jrataplan@miuandes.cl', \
               address:'San Carlos de Apoquindo'),
-         User.new(name:'Raul', lastname:'Rabufetti', \
-              password:'123456', email:'rrabufetti@miuandes.cl', \
+         User.new(name:'Raul', lastname:'Rabufetti', phone_number: 123456730, \
+              password:'1234562345', email:'rrabufetti@miuandes.cl', \
               address:'San Carlos de Apoquindo'),
-         User.new(name:'Raul', lastname:'Ganfolfi', \
-              password:'123456', email:'rgandolfi@miuandes.cl', \
+         User.new(name:'Raul', lastname:'Ganfolfi', phone_number: 123456720, \
+              password:'123456234', email:'rgandolfi@miuandes.cl', \
               address:'San Carlos de Apoquindo'),
-         User.new(name:'Licenciado', lastname:'Varela', \
-              password:'123456', email:'lvarela@miuandes.cl', \
+         User.new(name:'Licenciado', lastname:'Varela', phone_number: 123456710, \
+              password:'123456234', email:'lvarela@miuandes.cl', \
               address:'San Carlos de Apoquindo')]
+              
               
 for u in users do
   u.save!
